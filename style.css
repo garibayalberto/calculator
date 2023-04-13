@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
+/* https://codepen.io/Proxinadu/details/WNwjapq */
+
+* {
+  font-family: 'Electrolize';
+  font-size: 24px;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fefbec;
+}
+
+#calculator {
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-row-gap: 5px;
+  grid-column-gap: 10px;
+  padding: 10px;
+  width: 250px;
+  background: linear-gradient(90deg, #ffafcc 75%, #ffc8dd 25%);
+  border-radius: 10px;
+  box-shadow: 0 8px 0 0 #ff87ab;
+}
+
+#calculator #screen-output {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  margin-bottom: 5px;
+  padding: 5px;
+  height: 50px;
+  line-height: 50px;
+  text-align: right;
+  color: #4e555b;
+  background: #eef2f5;
+  box-shadow: inset 0 8px 0 0 #bdc1c4;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+#calculator button {
+  margin-bottom: 10px;
+  padding: 0;
+  height: 40px;
+  color: #899098;
+  background: #ffafcc;
+  border: none;
+  border-radius: inherit;
+  box-shadow: 0 8px 0 0 #ff87ab;
+  user-select: none;
+  transition: .1s ease-out;
+  border: 1px solid white;
+}
+
+#calculator button.active,
+#calculator button:active {
+  transform: translateY(8px);
+  box-shadow: 0 0 0 0 #ff87ab;
+}
+
+button:focus {
+  outline: none;
+}
+
+button.operator {
+  color: #fff;
+  background: #cdb4db;
+  box-shadow: 0 8px 0 0 #4e555b;
+}
+button.operator.active,
+button.operator:active{
+  box-shadow: 0 0 0 0 #4e555b;
+}
+
+#clear,
+#clearAll {
+  color: #fff;
+  background: #f55748;
+  box-shadow: 0 8px 0 0 #d83c38;
+}
+#clear.active,
+#clearAll.active,
+#clear:active,
+#clearAll:active {
+  box-shadow: 0 0 0 0 #d83c38;
+}
+
+button[value="0"] {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+/* button[value="+"] {
+  height: 95px !important;
+  grid-column: 4;
+  grid-row-start: 4;
+  grid-row-end: 6;
+} */
+
+button.equal {
+  grid-column-start: 4;
+  grid-column-end: 6;
+  color: #fff;
+  background: #ffc809;
+  box-shadow: 0 8px 0 0 #fd9a18;
+}
+
+button.equal.active,
+button.equal:active {
+  box-shadow: 0 0 0 0 #fd9a18;
+}
