@@ -1,7 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
 
 /* https://codepen.io/Proxinadu/details/WNwjapq */
+/* https://www.pantone.com/articles/fashion-color-trend-report/new-york-fashion-week-spring-summer-2023 */
 
+/*
+Pantone Summer 2023 Colors
+
+#ac8266 -> Macchiato
+#f5d8c6 -> Vanilla Cream
+#c8e0e0 -> Skylight
+#d01c1f -> Fiery Red
+#ff7e04 -> Tangelo
+#fa9a85 -> Peach Pink
+#f7d000 -> Empire Yellow
+#fdc3c6 -> Crystal Rose
+#39a845 -> Classic Green
+#c1db3c -> Love Bird
+#4b81bf -> Blue Perennial
+#a1c3da -> Summer Song
+
+*/
 * {
   font-family: 'Electrolize';
   font-size: 24px;
@@ -25,91 +43,78 @@ body {
 }
 
 #calculator {
+  background: #4B81BF;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 5px 0 4px black;
+  border-radius: 10px;
+}
 
+#screen-output {
+  text-align: right;
+  padding: 1em;
+  background: #C8E0E0;
+  border-radius: 10px;
+  box-shadow: 0px 3px 0 0px black;
+}
+
+#calc-btns {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-row-gap: 5px;
   grid-column-gap: 10px;
   padding: 10px;
   width: 250px;
-  background: linear-gradient(90deg, #ffafcc 75%, #ffc8dd 25%);
-  border-radius: 10px;
-  box-shadow: 0 8px 0 0 #ff87ab;
 }
 
-#calculator #screen-output {
-  grid-column-start: 1;
-  grid-column-end: 6;
-  margin-bottom: 5px;
-  padding: 5px;
-  height: 50px;
-  line-height: 50px;
-  text-align: right;
-  color: #4e555b;
-  background: #eef2f5;
-  box-shadow: inset 0 8px 0 0 #bdc1c4;
-  border-radius: inherit;
-  overflow: hidden;
-}
-
-#calculator button {
+#calc-btns button {
   margin-bottom: 10px;
   padding: 0;
   height: 40px;
-  color: #899098;
-  background: #ffafcc;
-  border: none;
-  border-radius: inherit;
-  box-shadow: 0 8px 0 0 #ff87ab;
+  color: #fff;
+  background: #F7D000;
+  border-radius: 10px;
+  box-shadow: 0 5px 0 0 #000;
   user-select: none;
   transition: .1s ease-out;
-  border: 1px solid white;
+  border: none;
 }
 
-#calculator button.active,
-#calculator button:active {
-  transform: translateY(8px);
-  box-shadow: 0 0 0 0 #ff87ab;
+#calc-btns button.active,
+#calc-btns button:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 0 #000;
 }
 
 button:focus {
   outline: none;
 }
 
-button.operator {
-  color: #fff;
-  background: #cdb4db;
-  box-shadow: 0 8px 0 0 #4e555b;
-}
-button.operator.active,
-button.operator:active{
-  box-shadow: 0 0 0 0 #4e555b;
+#calc-btns button#clear,
+#calc-btns button#clearAll,
+#calc-btns button.equal
+ {
+  background: #AC8266;
 }
 
-#clear,
-#clearAll {
-  color: #fff;
-  background: #f55748;
-  box-shadow: 0 8px 0 0 #d83c38;
+#calc-btns button.operator {
+  background: #FF7E04;
 }
-#clear.active,
-#clearAll.active,
-#clear:active,
-#clearAll:active {
-  box-shadow: 0 0 0 0 #d83c38;
+
+#calc-btns button[value="+"] {
+  background: #39A845;
 }
+
+#calc-btns button[value="-"] {
+  background: #D01C1F;
+}
+
+/* ----------------------------- */
 
 button[value="0"] {
   grid-column-start: 1;
   grid-column-end: 3;
 }
-
-/* button[value="+"] {
-  height: 95px !important;
-  grid-column: 4;
-  grid-row-start: 4;
-  grid-row-end: 6;
-} */
 
 button.equal {
   grid-column-start: 4;
