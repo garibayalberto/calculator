@@ -10,28 +10,28 @@
   <body>
 
     <div id="calculator">
-      <output id="screen-output">0</output>
+      <output id="screen-output"></output>
       <div id="calc-btns">
-        <button value="7">7</button>
-        <button value="8">8</button>
-        <button value="9">9</button>
-        <button id="clear" value="Backspace">&lt;</button>
-        <button id="clearAll" value="Clear">C</button>
-        <button value="4">4</button>
-        <button value="5">5</button>
-        <button value="6">6</button>
-        <button class="operator" value="/">÷</button>
-        <button class="operator" value="*">×</button>
-        <button value="1">1</button>
-        <button value="2">2</button>
-        <button value="3">3</button>
-        <button class="operator" value="+">+</button>
-        <button class="operator" value="-">-</button>
-        <button value="0">0</button>
-        <button value=".">.</button>
-        <button class="equal" value="=">=</button>
+        <button data-number value="7">7</button>
+        <button data-number value="8">8</button>
+        <button data-number value="9">9</button>
+        <button id="deleteBtn">&lt;</button>
+        <button id="clearBtn">C</button>
+        <button data-number value="4">4</button>
+        <button data-number value="5">5</button>
+        <button data-number value="6">6</button>
+        <button data-operator class="operator" value="/">÷</button>
+        <button data-operator class="operator" value="*">×</button>
+        <button data-number value="1">1</button>
+        <button data-number value="2">2</button>
+        <button data-number value="3">3</button>
+        <button data-operator class="operator" value="+">+</button>
+        <button data-operator class="operator" value="-">-</button>
+        <button data-number value="0">0</button>
+        <button id="pointBtn">.</button>
+        <button id="equalsBtn" value="=">=</button>
       </div> 
     </div>
-	<script src="index.js"></script>
+	<script src="script.js"></script>
   </body>
 </html>

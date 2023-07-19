@@ -1,21 +1,77 @@
-/* this file is skeleton code as I work towards figuring out how to create a working calculator */
-
-// first lets figure out what global variables we are going to need
-/**
- * First Operand
- * Second Operand
- * The selected Operation
- */
-
-/**
- * these are the 3 key items we need to operate on
- */
-
+// Operation Variables
 let firstOperand = '';
 let secondOperand = '';
 let selectedOperation = null;
+let shouldResetDisplay = false;
+//--------------------
 
-// Before connecting this to the html I just want to get started on how this will work programmatically 
+// HTML Variables
+const display = document.getElementById('screen-output');
+
+const equalsButton = document.getElementById('equalsBtn')
+const clearButton = document.getElementById('clearBtn')
+const deleteButton = document.getElementById('deleteBtn')
+const pointButton = document.getElementById('pointBtn')
+
+const numberButtons = document.querySelectorAll('[data-number]')
+const operatorButtons = document.querySelectorAll('[data-operator]')
+//--------------------
+
+// Button Click Events
+
+// equalsButton.addEventListener('click', evaluate)
+// clearButton.addEventListener('click', clear)
+// deleteButton.addEventListener('click', deleteNumber)
+// pointButton.addEventListener('click', appendPoint)
+
+
+// Query All Number Buttons
+numberButtons.forEach((button) =>
+  button.addEventListener('click', () => appendNumber(button.textContent))
+)
+
+// Query All Operator Buttons
+operatorButtons.forEach((button) =>
+  button.addEventListener('click', () => setOperation(button.value))
+)
+
+//--------------------
+
+// General functions
+
+function resetDisplay() {
+  display.textContent = ''
+  shouldResetDisplay = false
+}
+
+function appendNumber(number) {
+  if (display.textContent === '0' || shouldResetDisplay) {
+    resetDisplay();
+  }
+  display.textContent += number;
+}
+
+function setOperation(operator) {
+  if (selectedOperation !== null) evaluate();
+  firstOperand = display.textContent;
+  selectedOperation = operator;
+  shouldResetDisplay = true;
+}
+
+function evaluate() {
+  if (selectedOperation === null || shouldResetDisplay) return;
+  if (selectedOperation === '/' && display.textContent === '0') {
+    alert("You can't divide by 0!");
+    return
+  }
+  secondOperand = display.textContent;
+  display.textContent = operate(selectedOperation, firstOperand, secondOperand);
+
+  selectedOperation = null
+}
+//--------------------
+
+// Math Functionality
 
 function add(a, b) {
   return a + b
@@ -50,11 +106,3 @@ function operate(operator, a, b) {
       return null
   }
 }
-
-/**
- * Technically the program is done now
- * we can run the 'operate' function within the console and it would work perfectly
- * That makes the next step connecting it to the actually html
- */
-
-/* im gay */
