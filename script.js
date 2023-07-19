@@ -17,13 +17,6 @@ const numberButtons = document.querySelectorAll('[data-number]')
 const operatorButtons = document.querySelectorAll('[data-operator]')
 //--------------------
 
-// Button Click Events
-
-// equalsButton.addEventListener('click', evaluate)
-// clearButton.addEventListener('click', clear)
-// deleteButton.addEventListener('click', deleteNumber)
-// pointButton.addEventListener('click', appendPoint)
-
 
 // Query All Number Buttons
 numberButtons.forEach((button) =>
@@ -34,6 +27,19 @@ numberButtons.forEach((button) =>
 operatorButtons.forEach((button) =>
   button.addEventListener('click', () => setOperation(button.value))
 )
+
+// Equals Button clicked 
+equalsButton.addEventListener('click', () => solveExpression());
+
+// Add Point "."
+pointButton.addEventListener('click', () => appendNumber("."));
+
+// Delete Last Item
+deleteButton.addEventListener('click', () => deleteLastItem());
+
+// Clear All Data 
+
+clearBtn.addEventListener('click', () => clearAll());
 
 //--------------------
 
@@ -69,6 +75,25 @@ function evaluate() {
 
   selectedOperation = null
 }
+
+function solveExpression() {
+  evaluate();
+}
+
+function deleteLastItem() {
+  if(display.textContent != "") {
+    display.textContent = display.textContent .slice(0, -1); 
+  }
+}
+
+function clearAll() {
+  firstOperand = '';
+  secondOperand = '';
+  selectedOperation = null;
+  shouldResetDisplay = false;
+  display.textContent = "0";
+}
+
 //--------------------
 
 // Math Functionality
